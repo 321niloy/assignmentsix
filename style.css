@@ -7,7 +7,7 @@
 .Onepart{
     font-size:13px;
 }
-
+/* raw css media query */
 @media (max-width: 576px) {
     .Onepart{
         font-size:10px;
