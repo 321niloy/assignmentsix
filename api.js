@@ -76,6 +76,7 @@ const loaddetailsModal = async  id=>{
     modalDisplayData(data.data);
     
 }
+//modal start //
 
 const modalDisplayData = modal =>{
     console.log(modal)
