@@ -82,9 +82,10 @@ const loaddetailsModal = async  id=>{
 
 const modalDisplayData = modal =>{
     console.log(modal)
+    
     document.getElementById('fristCardParagraph').innerText=modal.description;
-    document.getElementById('spanpricing').innerText=modal.pricing[0].price?modal.pricing[0].price:"Free of cost";
-    document.getElementById('spanprizingO').innerText=modal.pricing[0].plan;
+    document.getElementById('spanpricing').innerText=modal.pricing?.price ? modal.pricing[0]?.price==='0'?'free cost': modal.pricing[0].price:'free cost';
+    document.getElementById('spanprizingO').innerText=modal.pricing?modal.pricing[0].plan:'Basic';
     document.getElementById('spanpricingt').innerText=modal.pricing[1].price?modal.pricing[1].price:"Free of cost";
     document.getElementById('spanprizingOt').innerText=modal.pricing[1].plan;
     document.getElementById('spanpricingth').innerText=modal.pricing[2].price?modal.pricing[2].price:'Free of cost';
