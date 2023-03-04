@@ -1,11 +1,16 @@
-const loadingfristApi = (more) => {
-    // toggle spiner working start //
+let shortindata =[];
+const loadingfristApi = async more=>{
     togglespiner(true);
     const url =`https://openapi.programming-hero.com/api/ai/tools`
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displayCardData(data.data.tools,more))
+    const res = await fetch(url)
+    const data = await res.json()
+    shortindata=data.data.tools
+    displayCardData(data.data.tools,more)
+
+
+
 }
+
 const displayCardData = (cardData,more) =>{
     // console.log(cardData)
     const cardContainer = document.getElementById('cardContainer')
@@ -56,7 +61,8 @@ const displayCardData = (cardData,more) =>{
     togglespiner(false);
 }
 document.getElementById('seeMorebtnClicked').addEventListener('click', function(){
-    loadingfristApi(true)
+    
+    displayCardData(shortindata,true)
 })
 // ////////////////toggle spiner function///////////////////////
  const togglespiner = isLoadding =>{
@@ -84,15 +90,15 @@ const modalDisplayData = modal =>{
     console.log(modal)
     
     document.getElementById('fristCardParagraph').innerText=modal.description;
-    document.getElementById('spanpricing').innerText=modal.pricing?.price ? modal.pricing[0]?.price==='0'?'free cost': modal.pricing[0].price:'free cost';
+    document.getElementById('spanpricing').innerText=modal.pricing[0].price?modal.pricing[0].price:'Free of cost';
     document.getElementById('spanprizingO').innerText=modal.pricing?modal.pricing[0].plan:'Basic';
     document.getElementById('spanpricingt').innerText=modal.pricing[1].price?modal.pricing[1].price:'Free of cost';
-    document.getElementById('spanprizingOt').innerText=modal.pricing[1].plan;
+    document.getElementById('spanprizingOt').innerText=modal.pricing[1]?modal.pricing[1].plan:"free";
     document.getElementById('spanpricingth').innerText=modal.pricing[2].price?modal.pricing[2].price:'Free of cost';
-    document.getElementById('spanprizingOth').innerText=modal.pricing[2].plan;
-    document.getElementById('lio').innerText=modal.features['1'].feature_name;
-    document.getElementById('lion').innerText=modal.features['2'].feature_name;;
-    document.getElementById('lioe').innerText=modal.features['3'].feature_name;;
+    document.getElementById('spanprizingOth').innerText=modal.pricing[2]?modal.pricing[2].plan:"free";
+    document.getElementById('lio').innerText=modal.features['1']?modal.features['1'].feature_name:"free";
+    document.getElementById('lion').innerText=modal.features['2']?modal.features['2'].feature_name:"Null";
+    document.getElementById('lioe').innerText=modal.features['3']?modal.features['3'].feature_name:"null";
     document.getElementById('liot').innerText=modal.integrations?modal.integrations[0] :"No Integration";
     document.getElementById('liow').innerText=modal.integrations?modal.integrations[1] :"No Integration";
     document.getElementById('lioo').innerText=modal.integrations?modal.integrations[2] :"No Integration";
@@ -115,6 +121,20 @@ opdiv.innerHTML=`
 cardInnerdiv.appendChild(opdiv)
 }
 //------------------------Modal End------------------------------------ //
+// -------------------Sort by data-----------------------//////
+const sortBybutton =()=>{
+    shortindata.sort((a,b)=>{
+  return new Date(a.published_in)-new Date(b.published_in)
+
+    })
+    displayCardData(shortindata,6)
+}
+//--------------------sort by data----------------------//////
+
+
+
+
+
 loadingfristApi()
 
 
