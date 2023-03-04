@@ -56,7 +56,7 @@ const displayCardData = (cardData,more) =>{
 document.getElementById('seeMorebtnClicked').addEventListener('click', function(){
     loadingfristApi(true)
 })
-// ////////////////toggle spiner///////////////////////
+// ////////////////toggle spiner function///////////////////////
  const togglespiner = isLoadding =>{
     const loaderSection = document.getElementById('loaderstr');
    if(isLoadding){
