@@ -86,7 +86,7 @@ const modalDisplayData = modal =>{
     document.getElementById('fristCardParagraph').innerText=modal.description;
     document.getElementById('spanpricing').innerText=modal.pricing?.price ? modal.pricing[0]?.price==='0'?'free cost': modal.pricing[0].price:'free cost';
     document.getElementById('spanprizingO').innerText=modal.pricing?modal.pricing[0].plan:'Basic';
-    document.getElementById('spanpricingt').innerText=modal.pricing[1].price?modal.pricing[1].price:"Free of cost";
+    document.getElementById('spanpricingt').innerText=modal.pricing[1].price?modal.pricing[1].price:'Free of cost';
     document.getElementById('spanprizingOt').innerText=modal.pricing[1].plan;
     document.getElementById('spanpricingth').innerText=modal.pricing[2].price?modal.pricing[2].price:'Free of cost';
     document.getElementById('spanprizingOth').innerText=modal.pricing[2].plan;
@@ -104,7 +104,7 @@ const modalDisplayData = modal =>{
 opdiv.innerHTML=`
 <img class=" position-relative img-fluid" src="${modal.image_link[0]?modal.image_link[0]:modal.image_link[1]}" class="card-img-top" alt="...">
 <div class="card-body  text-center">
-<h5 class="card-title">${modal.input_output_examples[0]?modal.input_output_examples[0].input:"No title"}</h5>
+<h5 class="card-title">${modal.input_output_examples?modal.input_output_examples[0].input:'no data found'}</h5>
 <p class="card-text">${modal.input_output_examples[0]?modal.input_output_examples[0].output:"No example"}</p>
 </div>
 <span class="position-absolute  top-0 ps-3 pe-3  end-0 bg-danger  rounded-pill" >
