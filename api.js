@@ -52,6 +52,7 @@ const displayCardData = (cardData,more) =>{
         `
         cardContainer.appendChild(Mydiv)
     });
+    // toggle spiner end //
     togglespiner(false);
 }
 document.getElementById('seeMorebtnClicked').addEventListener('click', function(){
