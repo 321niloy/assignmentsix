@@ -104,7 +104,7 @@ opdiv.innerHTML=`
 <img class=" position-relative img-fluid" src="${modal.image_link[0]?modal.image_link[0]:modal.image_link[1]}" class="card-img-top" alt="...">
 <div class="card-body  text-center">
 <h5 class="card-title">${modal.input_output_examples[0]?modal.input_output_examples[0].input:"No title"}</h5>
-<p class="card-text">${modal.input_output_examples[0].output}</p>
+<p class="card-text">${modal.input_output_examples[0]?modal.input_output_examples[0].output:"No example"}</p>
 </div>
 <span class="position-absolute  top-0 ps-3 pe-3  end-0 bg-danger  rounded-pill" >
    ${modal.accuracy.score?modal.accuracy.score*100+'% Accuracy':""}
